@@ -52,7 +52,7 @@ def response_to_client(phone: str = ''):
 
 #Gets data in the format 'Cookie Parameters'.
 @app.get("/unify_phone_from_cookies")
-def response_to_client(phone: str | None = Cookie(None)):
+def response_to_client(phone: Optional[str] = Cookie(default=None)):
     data =str({"phone": phone})
     logger.info(f'phone:{data!r}')
     message_phone = from_string_to_phone(data)
